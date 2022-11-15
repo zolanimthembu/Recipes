@@ -1,0 +1,11 @@
+﻿@model Recipe
+@{
+    ViewBag.Title = "Instructions";
+}
+<h2>@Model.RecipeName</h2>
+<div class="row">
+    <b class="d-flex p-2">Date: @Model.DateAdded.ToLongDateString() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Author: @Model.User.UserName</b>
+    <p>
+       @Html.Raw(Model.Description)
+    </p>
+</div>

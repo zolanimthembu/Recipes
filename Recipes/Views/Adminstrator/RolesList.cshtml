@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "Roles List";
+}
+<h3>All Roles</h3>
+@if(Model.Any())
+{
+    try
+    {
+        <a class="btn btn-primary m-3" asp-action="CreateRole" asp-controller="Adminstrator">Create Role</a>
+
+        foreach (var role in Model)
+        {
+            <div class="row">
+            <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@role.Name</h5>
+                    @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+                    <a asp-action="AssignRoles" asp-controller="Adminstrator" asp-route-roleID="@role.Id" class="btn btn-primary">Assign Role</a>
+                </div>
+            </div>
+            </div>
+        }
+    }catch(Exception)
+    {
+
+    }
+    
+    
+}
+else{
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    @*<h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+    <a class="btn btn-primary" asp-action="CreateRole" asp-controller="Adminstrator">Create Role</a>
+  </div>
+</div>
+}

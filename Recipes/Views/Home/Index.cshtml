@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Recipe>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="">
+ <div class="row">
+   
+@if(Model.Count()>0) {
+            @foreach (var obj in Model)
+
+            {
+                <div class="col-sm-4 p-3">
+                    <div class="card">
+                        <img src="~/images/@obj.Image"
+                     class="card-img-top"
+                     width="100" height="100"
+                     asp-append-version="true" />
+                        <div class="card-body">
+                           
+                            <p class="text-center"><b>@obj.RecipeName</b></p>
+                        </div>
+                       
+                            <a asp-action="Instructions" asp-controller="Home" asp-route-recipeID="@obj.RecipeID" class="btn btn-primary">Ingredients</a>
+                       
+                    </div>
+                </div>
+            }
+}
+else{
+    <h1>Welcome To Recipe App</h1>
+    <p>Please Register and share you Recipes with others</p>
+}
+@if(ViewBag.LoadMore>6){
+<a class="btn btn-primary p-3" asp-action="All" asp-controller="home" style="width">Load More</a>
+        }
+    </div>
+</div>

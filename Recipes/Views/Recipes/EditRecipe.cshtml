@@ -1,0 +1,33 @@
+﻿@model AddNewRecipeViewModel
+@{
+    ViewBag.Title = "Edit Recipe";
+}
+<div class="row container">
+    <form method="post" enctype="multipart/form-data">
+
+            <div asp-validation-summary="All" class="text-danger m-3"></div>
+
+            <input type="text" class="form-control m-3" asp-for="RecipeName" placeholder="Recipe Name" />
+
+            <input class="form-control m-3" id="customFile1" asp-for="Image" placeholder="Recipe Image" />
+
+            <textarea class="form-control m-3" id="Description" asp-for="Description"></textarea>
+        <button type="submit" class="btn btn-primary border-0 m-3">Update Recipe</button>
+        <a asp-action="GetAllRecipe" asp-controller="Recipes" class="btn btn-primary">Recipes</a>
+    </form>
+</div>
+@section Scripts{
+    <script src="~/js/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Description")
+
+    </script>
+
+    <script type="text/javascript">  
+        // Add the following code if you want the name of the file appear on select  
+        $(".custom-file-input").on("change", function () {  
+            var fileName = $(this).val().split("\\").pop();  
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);  
+        });  
+    </script> 
+}

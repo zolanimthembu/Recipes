@@ -1,0 +1,22 @@
+﻿@model DeleteRecipeViewModel
+
+<h2>Delete Recipe</h2>
+<div class="row container">
+    <form method="post">
+        <div class="col-md-6">
+            <div asp-validation-summary="All" class="text-danger m-3"></div>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control m-3" readonly asp-for="RecipeName" placeholder="Recipe Name" />
+        </div>
+        <div class="col-md-6">
+            <input type="datetime" class="form-control m-3" readonly asp-for="DateAdded" placeholder="Recipe Name" />
+        </div>
+        <div class="col-md-6">
+            
+            <input type="text" class="form-control m-3" readonly asp-for="UserName" placeholder="Recipe Name" />
+        </div>
+        <button type="submit" class="btn btn-danger border-0 m-3">Delete Recipe</button>
+        <a asp-action="GetAllRecipe" asp-controller="Recipes" class="btn btn-primary">Recipes</a>
+    </form>
+</div>

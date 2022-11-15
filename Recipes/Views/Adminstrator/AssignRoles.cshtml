@@ -1,0 +1,26 @@
+﻿@model List<Recipes.ViewModels.AdminAssigRolesViewModel>
+@{
+    var roleID = ViewBag.RoleID;
+}
+<form method="post">
+    <div class="card">
+        <div class="card-header">
+            <h2>Assign Role</h2>
+        </div>
+        <div class="card-body">
+            @for(int i = 0; i < Model.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model[i].UserID"/>
+                    <input type="hidden" asp-for="@Model[i].UserName"/>
+                    <input asp-for="@Model[i].isSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model[i].isSelected">@Model[i].UserName</label>
+                </div>
+            }
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary border-0 m-3">Update</button>
+            <a asp-action="RolesList" asp-controller="Adminstrator" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

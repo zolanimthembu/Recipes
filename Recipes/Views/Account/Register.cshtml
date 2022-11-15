@@ -1,0 +1,22 @@
+﻿@model Recipes.ViewModels.UserCreateViewModel
+@{
+    ViewBag.Title = "Registration";
+}
+<div class="row">
+    <form method="post">
+        
+
+            <div asp-validation-summary="All" class="text-danger m-3"></div>
+            
+
+            <input class="form-control m-3" asp-for="Name" placeholder="Name" />
+    
+            <input type="text" class="form-control m-3" asp-for="Email" placeholder="Email" />
+      
+            <input  class="form-control m-3" asp-for="Password" placeholder="Passowrd" />
+       
+            <input class="form-control m-3" asp-for="ConfirmPassword" placeholder="Confirm Password" />
+       
+        <button type="submit" class="btn btn-primary border-0 m-3">Register</button>
+    </form>
+</div>
