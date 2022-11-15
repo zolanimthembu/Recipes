@@ -62,11 +62,7 @@ namespace Recipes.Controllers
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe,false);
                 if (result.Succeeded)
                 {
-                    if(_signInManager.IsSignedIn(User))
-                    {
-                        return RedirectToAction("Dashboard", "Account");
-                    }
-                    
+                   return RedirectToAction("Dashboard", "Account");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
